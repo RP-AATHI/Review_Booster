@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import { db } from '@/firebase/firebase';
 import { collection, query, where, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
 import { Star, Loader2, CheckCircle, Store, Send } from 'lucide-react';
 
 export default function CustomerReview({ params }) {
-    const { merchantId } = params;
+    const { merchantId } = use(params);
     const [merchant, setMerchant] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
