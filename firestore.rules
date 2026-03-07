@@ -1,0 +1,55 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Core check: is the user a logged-in merchant?
+    function isMerchant() {
+      return request.auth != null;
+    }
+
+    // Is the user accessing their own data?
+    function isOwner(merchantId) {
+      return isMerchant() && request.auth.uid == merchantId;
+    }
+
+    // 1. Merchants collection
+    // Merchants can read and write only their own profile
+    match /merchants/{merchantId} {
+      allow read, write: if isOwner(merchantId);
+    }
+
+    // 2. QR Codes
+    // Anyone can read a QR code to access the scanning page
+    // Only the owning merchant can create/update their QR codes
+    match /qr_codes/{qrId} {
+      allow read: if true;
+      allow write: if isMerchant() && request.resource.data.merchantId == request.auth.uid;
+    }
+
+    // 3. Scans
+    // Anyone (unauthenticated customers) can create a scan record
+    // Only the owning merchant can read their scan data
+    match /scans/{scanId} {
+      allow create: if true;
+      allow read, update, delete: if isMerchant() && resource.data.merchantId == request.auth.uid;
+    }
+
+    // 4. Feedback
+    // Anyone can submit negative feedback
+    // Only the owning merchant can read/update the feedback
+    match /feedback/{feedbackId} {
+      allow create: if true;
+      allow read, update, delete: if isMerchant() && resource.data.merchantId == request.auth.uid;
+    }
+
+    // 5. Coupons
+    // Anyone can read a coupon to verify it exists
+    // Only system (Admin API) can create and only merchant can update status to 'redeemed'
+    match /coupons/{couponId} {
+      allow read: if true;
+      allow create: if true; // In reality, this might be restricted to Cloud Functions
+      allow update: if isMerchant() && resource.data.merchantId == request.auth.uid;
+    }
+  }
+}
