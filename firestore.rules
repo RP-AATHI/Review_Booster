@@ -16,7 +16,8 @@ service cloud.firestore {
     // 1. Merchants collection
     // Merchants can read and write only their own profile
     match /merchants/{merchantId} {
-      allow read, write: if isOwner(merchantId);
+      allow read: if true;
+      allow write: if isOwner(merchantId);
     }
 
     // 2. QR Codes
