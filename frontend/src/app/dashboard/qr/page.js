@@ -94,20 +94,21 @@ export default function QRCodeGenerator() {
                         </h3>
                         <div className="space-y-4">
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Your Feedback URL</label>
-                                <div className="flex rounded-md shadow-sm">
-                                    <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
-                                        {origin}/review/
-                                    </span>
-                                    <input
-                                        type="text"
-                                        onChange={(e) => setLinkSuffix(e.target.value.replace(/[^a-zA-Z0-9-]/g, '').toLowerCase())}
-                                        value={linkSuffix}
-                                        className="flex-1 min-w-0 block w-full px-3 py-2 rounded-none rounded-r-md border border-gray-300 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                                        placeholder="joes-pizza"
-                                    />
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Feedback URL Slug</label>
+                                <input
+                                    type="text"
+                                    onChange={(e) => setLinkSuffix(e.target.value.replace(/[^a-zA-Z0-9-]/g, '').toLowerCase())}
+                                    value={linkSuffix}
+                                    className="block w-full px-3 py-2 rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    placeholder="e.g., joes-pizza"
+                                />
+                                <div className="mt-3 p-3 bg-blue-50 rounded-md border border-blue-100">
+                                    <p className="text-xs font-semibold text-blue-800 mb-1">Live URL Preview:</p>
+                                    <p className="text-sm text-blue-600 break-all select-all font-mono">
+                                        {origin}/review/{linkSuffix || 'joes-pizza'}
+                                    </p>
                                 </div>
-                                <p className="mt-1 text-xs text-gray-500">Only letters, numbers, and hyphens allowed.</p>
+                                <p className="mt-2 text-xs text-gray-500">Only letters, numbers, and hyphens allowed.</p>
                             </div>
                             <div className="pt-2">
                                 <button
