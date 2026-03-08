@@ -99,7 +99,7 @@ export default function QRCodeGenerator() {
                                     type="text"
                                     onChange={(e) => setLinkSuffix(e.target.value.replace(/[^a-zA-Z0-9-]/g, '').toLowerCase())}
                                     value={linkSuffix}
-                                    className="block w-full px-3 py-2 rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    className="block w-full px-3 py-2 rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 text-gray-900 focus:border-blue-500 sm:text-sm"
                                     placeholder="e.g., joes-pizza"
                                 />
                                 <div className="mt-3 p-3 bg-blue-50 rounded-md border border-blue-100">

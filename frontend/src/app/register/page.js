@@ -95,7 +95,7 @@ export default function Register() {
                                     required
                                     value={formData.restaurantName}
                                     onChange={handleChange}
-                                    className="focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-lg py-3 border bg-gray-50"
+                                    className="focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-lg py-3 border bg-gray-50 text-gray-900"
                                     placeholder="Joe's Pizza"
                                 />
                             </div>
@@ -113,7 +113,7 @@ export default function Register() {
                                     required
                                     value={formData.ownerName}
                                     onChange={handleChange}
-                                    className="focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-lg py-3 border bg-gray-50"
+                                    className="focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-lg py-3 border bg-gray-50 text-gray-900"
                                     placeholder="Joe Smith"
                                 />
                             </div>
@@ -131,7 +131,7 @@ export default function Register() {
                                     required
                                     value={formData.email}
                                     onChange={handleChange}
-                                    className="focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-lg py-3 border bg-gray-50"
+                                    className="focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-lg py-3 border bg-gray-50 text-gray-900"
                                     placeholder="joe@pizza.com"
                                 />
                             </div>
@@ -149,7 +149,7 @@ export default function Register() {
                                     required
                                     value={formData.password}
                                     onChange={handleChange}
-                                    className="focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-lg py-3 border bg-gray-50"
+                                    className="focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-lg py-3 border bg-gray-50 text-gray-900"
                                     placeholder="••••••••"
                                     minLength={6}
                                 />
@@ -168,7 +168,7 @@ export default function Register() {
                                     required
                                     value={formData.confirmPassword}
                                     onChange={handleChange}
-                                    className="focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-lg py-3 border bg-gray-50"
+                                    className="focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-lg py-3 border bg-gray-50 text-gray-900"
                                     placeholder="••••••••"
                                     minLength={6}
                                 />
